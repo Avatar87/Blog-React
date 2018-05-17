@@ -115,9 +115,21 @@
     }
 
     function process() {
+        function* gen() {
+            let fio = yield prompt('ФИО');
+            let email = yield prompt('email');
+            let tel = yield prompt('Контактный телефон');
+        }
+        let generator = gen();
+
         const contfio = $("#fio").val();
         const contemail = $("#email").val();
         const conttel = $("#tel").val();
+        const inputfio = generator.next().value;
+        const inputmail = generator.next(contfio).value;
+        const inputtel = generator.next(contemail).value;
+        generator.next(conttel).done;
+
         class Form {
             constructor(fio, email, tel) {
                 this.fio = fio;
@@ -129,36 +141,40 @@
                 $("#content").append(data);
             }
         }
-        let form1 = new Form(contfio, contemail, conttel);
+        let form1 = new Form(inputfio, inputmail, inputtel);
         console.log(form1);
         form1.displaydata();
     }
 
+
     function form() {
         const txt = $("<h1></h1>").text("Task 4");
         $("body").append(txt);
+        /* Второй вариант задания через форму:
         $("body").append($("<label for='fio'></label>").html("Контактное лицо (ФИО)" + "&nbsp;"));
         $("body").append($("<input id='fio' style='width: 400px' name='fio'>" + "<br><br>"));
         $("body").append($("<label for='email'></label>").html("Email адрес" + "&nbsp;"));
         $("body").append($("<input id='email'  style='width: 400px' name='email' >" + "<br><br>"));
         $("body").append($("<label for='tel'></label>").html("Контактный телефон" + "&nbsp;"));
         $("body").append($("<input id='tel' style='width: 400px' name='tel'>" + "<br><br>"));
-        $("body").append($("<input type='submit' name='reg' value='Отправить' onclick='process()'>" + "<br>"));
-       	$("body").append($("<div id = 'content'></div>"));
+        */
+        $("body").append($("<input type='submit' name='reg' value='Ввести данные' onclick='process()'>" + "<br>"));
+        $("body").append($("<div id = 'content'></div>"));
     }
 
-    function promises(){
-    	const txt = $("<h1></h1>").text("Task 5");
+
+    function promises() {
+        const txt = $("<h1></h1>").text("Task 5");
         $("body").append(txt);
         let arr = [];
-        for (let i = 1; i <= 11; i++) {     	
-        	let p = new Promise(function(resolve,reject){	
-        		resolve($.get("https://jsonplaceholder.typicode.com/users/"+i, function(data){
-        			arr.push(data);	
-        		})); 
-        	})
+        for (let i = 1; i <= 11; i++) {
+            let p = new Promise(function(resolve, reject) {
+                resolve($.get("https://jsonplaceholder.typicode.com/users/" + i, function(data) {
+                    arr.push(data);
+                }));
+            })
         }
-        console.log(arr);   
+        console.log(arr);
     }
 
 
@@ -180,7 +196,7 @@
     </script>
 </head>
 
-<body style = "text-align: center;">
+<body style="text-align: center;">
 </body>
 
 </html>
