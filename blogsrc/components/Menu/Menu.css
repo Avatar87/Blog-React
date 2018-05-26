@@ -1,0 +1,28 @@
+.header {
+  background-color: #8258FA;
+  border: 1px solid #2E2E2E;
+}
+
+.header--maxi {
+  height: 100px;
+}
+
+.header--mini {
+  height: 50px;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+}
+
+ul li {
+	margin-right: 10px;
+}
+
+
+a:hover {
+	color: bisque;
+	text-decoration: none;
+}

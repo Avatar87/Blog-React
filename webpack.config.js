@@ -4,20 +4,18 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: { 
-   main: ['./src/js/carousel.js', './src/js/Basket.js']
+    main: path.resolve(__dirname, 'blogsrc', 'index.jsx')
   },
   output: {
-    path: path.resolve(__dirname, 'project1/js'),
+    path: path.resolve(__dirname, 'Blog'),
     filename: 'bundle.js'
   },
   
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: [path.resolve(__dirname, 'node_modules'),
-          path.resolve(__dirname, './src/packages'),
-        ],
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
         use: {
           loader: 'babel-loader'
         }
@@ -31,9 +29,12 @@ module.exports = {
       }
     ]
   },
+  devServer: {
+    contentBase: path.resolve(__dirname, 'Blog'),
+  },
   plugins: [
-    new ExtractTextPlugin('../css/style.css'),
-    new CopyWebpackPlugin([{ from: 'src/images', to: '../images'},
-      { from: 'src/packages', to: '../packages'}])
+    new ExtractTextPlugin('css/style.css'),
+    new CopyWebpackPlugin([{ from: 'blogsrc/images', to: 'images'}])
+      //{ from: 'src/packages', to: '../packages'}])
   ]
 }
