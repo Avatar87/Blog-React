@@ -1,13 +1,13 @@
 import './Header.css';
+import 'bootstrap/dist/css/bootstrap.css';
+
 import React, { Component } from 'react';
-
 import classNames from 'classnames';
-
-import Menu from '../Menu';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
 import { Form, FormGroup, Label, FormText } from 'reactstrap';
-import 'bootstrap/dist/css/bootstrap.css';
+
+import Menu from '../Menu';
 
 class ModalExample extends React.Component {
   constructor(props) {
@@ -56,7 +56,7 @@ const menuItems = [
   { link: 'blog.html', title: 'Blog' },
   { link: 'about.html', title: 'About Us' },
   { link: 'prices.html', title: 'Prices' },
-  { link: 'prices.html', title: 'Contacts' } 
+  { link: 'contacts.html', title: 'Contacts' } 
 ]
 
 export default class Header extends Component {
