@@ -1,4 +1,4 @@
-import 'bootstrap/dist/css/bootstrap.css';
+import './index.scss';
 
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
@@ -43,7 +43,7 @@ class ModalExample extends React.Component {
     );
   }
 
-  componentDidMount() {this.toggle()}
+  //componentDidMount() {this.toggle()}
 }
 
 class App extends Component {

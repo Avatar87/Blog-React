@@ -7,8 +7,8 @@ export default class Comments extends PureComponent {
     const { items } = this.props;
 
     return (
-      <div className = {'media mb-4 commentwrap'}>
-        {items.map((item, idx) => <div className = '{media-body}'><h5 id={idx}>Commenter name: {item.name}</h5>{item.text}</div>)}
+      <div className = "media mb-4 commentwrap">
+        {items.map((item, idx) => <div className = "media-body" key={idx}><h5>Commenter name: {item.name}</h5>{item.text}</div>)}
       </div>
     );
   } 
