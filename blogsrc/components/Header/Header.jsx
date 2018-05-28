@@ -18,7 +18,7 @@ class ModalExample extends React.Component {
 
     this.toggle = this.toggle.bind(this);
   }
-
+  componentDidMount() {this.toggle;}
   toggle() {
     this.setState({
       modal: !this.state.modal
