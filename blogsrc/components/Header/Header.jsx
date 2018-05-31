@@ -1,5 +1,4 @@
-import './Header.css';
-import 'bootstrap/dist/css/bootstrap.css';
+import './Header.scss';
 
 import React, { Component } from 'react';
 import classNames from 'classnames';
@@ -18,7 +17,7 @@ class ModalExample extends React.Component {
 
     this.toggle = this.toggle.bind(this);
   }
-  componentDidMount() {this.toggle;}
+  
   toggle() {
     this.setState({
       modal: !this.state.modal

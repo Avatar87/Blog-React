@@ -5,34 +5,27 @@ import classNames from 'classnames';
 
 import Comments from '../Comments';
 import CommentsForm from '../CommentsForm';
+import UserList from '../Users/UserList';
 
 export default class Content extends Component {
   static defaultProps = {
-    size: 'big'
+    size: 'big',
+    users: []
   }
 
   constructor(props) {
     super(props);
 
     this.state = {
-      comments: []
+      comments: [],
     }
-  }
-        addClass() {
-    this.setState({
-      error:true
-    });
   }
 
   handleSend = (comment) => {
-  if ([comment][0].name !== '' && [comment][0].text !== '') {
-
+  if (comment.name !== '' && comment.text !== '') {
     const { comments } = this.state;
-
     this.setState({
-
-      comments: comments.concat([comment])
-      
+      comments: comments.concat([comment])     
     });
     }
   }
@@ -41,24 +34,16 @@ export default class Content extends Component {
   render () {
     const { size, children } = this.props;
     const { comments } = this.state;
-    const contentClasses = classNames({
-      content1: true,
-      'col-lg-8': true
-    })
-
-    const sideClasses = classNames({
-      sidecontent: true,
-      'col-md-4': true
-    })
+    
 
     return (
-    <div className='wrap'>
-      <div className={contentClasses}> 
+    <div className="wrap">
+      <div className="content1 col-lg-8"> 
         <section>
-        <h1 className = {'mt-4'}> Post 1 </h1>
-        <p className={'lead'}>
+        <h1 className = "mt-4"> Blog 1 </h1>
+        <p className="lead">
             by&nbsp;
-            <a href="#">Ivan Ivanovich</a>
+            <a href="#">users</a>
         </p>
         <hr/>
         <p>Posted on January 1, 2018 at 12:00 PM</p>
@@ -73,7 +58,7 @@ export default class Content extends Component {
         <CommentsForm onSend={this.handleSend} />
         <Comments items={comments} />
      </div>
-     <aside className={sideClasses}>
+     <aside className="sidecontent col-md-4">
       Etiam euismod turpis sed sapien pulvinar, id sagittis mauris sagittis. Cras scelerisque consectetur erat, sed rutrum nunc vestibulum et. Integer urna felis, dignissim non accumsan non, volutpat et nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vivamus vitae ultricies nulla, sit amet vestibulum leo. Mauris at lectus a purus imperdiet tristique. Nulla placerat lorem vitae tortor commodo feugiat. Nunc non tristique elit, eget cursus purus. In rutrum nunc eu ullamcorper vulputate. Vestibulum nec nibh et sem interdum ultrices eget sed urna. Quisque tristique pretium libero eu tincidunt. Fusce maximus dui a justo lacinia, ut elementum enim elementum. Phasellus vestibulum quam vel purus mollis, quis tempor felis interdum.    
      </aside>
     </div>

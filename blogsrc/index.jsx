@@ -1,4 +1,4 @@
-import 'bootstrap/dist/css/bootstrap.css';
+import './index.scss';
 
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
@@ -7,7 +7,7 @@ import classNames from 'classnames';
 
 import Header from './components/Header';
 import Content from './components/Content';
-
+import UserList from './containers/UserListContainer';
 
 class ModalExample extends React.Component {
   constructor(props) {
@@ -43,7 +43,7 @@ class ModalExample extends React.Component {
     );
   }
 
-  componentDidMount() {this.toggle()}
+  //componentDidMount() {this.toggle()}
 }
 
 class App extends Component {
@@ -52,13 +52,13 @@ class App extends Component {
     return (
       <div>
         <Header>
-    
         </Header>
         <Content>
-
         </Content>
         <ModalExample>
         </ModalExample>
+        <UserList>
+        </UserList>
       </div>
 
     )
