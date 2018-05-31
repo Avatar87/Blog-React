@@ -5,17 +5,19 @@ import classNames from 'classnames';
 
 import Comments from '../Comments';
 import CommentsForm from '../CommentsForm';
+import UserList from '../Users/UserList';
 
 export default class Content extends Component {
   static defaultProps = {
-    size: 'big'
+    size: 'big',
+    users: []
   }
 
   constructor(props) {
     super(props);
 
     this.state = {
-      comments: []
+      comments: [],
     }
   }
 
@@ -32,15 +34,16 @@ export default class Content extends Component {
   render () {
     const { size, children } = this.props;
     const { comments } = this.state;
+    
 
     return (
     <div className="wrap">
       <div className="content1 col-lg-8"> 
         <section>
-        <h1 className = "mt-4"> Post 1 </h1>
+        <h1 className = "mt-4"> Blog 1 </h1>
         <p className="lead">
             by&nbsp;
-            <a href="#">Ivan Ivanovich</a>
+            <a href="#">users</a>
         </p>
         <hr/>
         <p>Posted on January 1, 2018 at 12:00 PM</p>
