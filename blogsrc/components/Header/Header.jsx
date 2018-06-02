@@ -5,11 +5,8 @@ import classNames from 'classnames';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
 import { Form, FormGroup, Label, FormText } from 'reactstrap';
-import { Link } from 'react-router-dom';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Menu from '../Menu';
-import routes from '../../routes';
 
 class ModalExample extends React.Component {
   constructor(props) {
@@ -54,11 +51,11 @@ class ModalExample extends React.Component {
 }
 
 const menuItems = [
-  { link: <Link to="/Index">Home</Link>, title: 'home' },
-  { link: <Link to="/Content">Blog</Link>, title: 'blog'}
-  //{ link: 'about.html', title: 'About Us' },
-  //{ link: 'prices.html', title: 'Prices' },
-  //{ link: 'contacts.html', title: 'Contacts' } 
+  { link: 'index.html', title: 'Home' },
+  { link: 'blog.html', title: 'Blog' },
+  { link: 'about.html', title: 'About Us' },
+  { link: 'prices.html', title: 'Prices' },
+  { link: 'contacts.html', title: 'Contacts' } 
 ]
 
 export default class Header extends Component {
@@ -77,9 +74,7 @@ export default class Header extends Component {
     return (
       <div className={headerClasses}>
         <a href = "index.html"><img src="images/logo.png"></img></a>
-         <BrowserRouter>
-          <Menu items={menuItems} />
-         </BrowserRouter>
+        <Menu items={menuItems} />
         <ModalExample />
       </div>
     )

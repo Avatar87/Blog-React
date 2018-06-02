@@ -35,7 +35,6 @@ module.exports = {
   },
   devServer: {
     contentBase: path.resolve(__dirname, 'Blog'),
-    historyApiFallback: true
   },
   plugins: [
     new ExtractTextPlugin('css/style.[chunkhash].css'),

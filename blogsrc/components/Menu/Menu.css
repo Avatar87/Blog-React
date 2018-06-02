@@ -18,16 +18,11 @@ ul {
 }
 
 ul li {
-	margin-right: 20px;
+	margin-right: 10px;
 }
 
 
-li a:hover {
+a:hover {
 	color: bisque;
 	text-decoration: none;
-}
-
-li a {
-  color: #ffffff;
-  text-decoration: none;
 }

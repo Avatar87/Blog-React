@@ -7,13 +7,11 @@ import Comments from '../Comments';
 import CommentsForm from '../CommentsForm';
 <<<<<<< HEAD
 import UserList from '../Users/UserList';
-import User from '../Users/User';
-
-const path = require('../../containers/userlist.json');
 
 export default class Content extends Component {
   static defaultProps = {
     size: 'big',
+<<<<<<< HEAD
     
 =======
 
@@ -21,6 +19,9 @@ export default class Content extends Component {
   static defaultProps = {
     size: 'big'
 >>>>>>> d7e17a5779fe3f8f2727ca6b7213922144e0334a
+=======
+    users: []
+>>>>>>> parent of 864e6ed... ff
   }
 
   constructor(props) {
@@ -29,10 +30,13 @@ export default class Content extends Component {
     this.state = {
 <<<<<<< HEAD
       comments: [],
+<<<<<<< HEAD
       users: path
 =======
       comments: []
 >>>>>>> d7e17a5779fe3f8f2727ca6b7213922144e0334a
+=======
+>>>>>>> parent of 864e6ed... ff
     }
   }
 
@@ -49,10 +53,15 @@ export default class Content extends Component {
   render () {
     const { size, children } = this.props;
 <<<<<<< HEAD
+<<<<<<< HEAD
     const { comments, users } = this.state;
 =======
     const { comments } = this.state;
 >>>>>>> d7e17a5779fe3f8f2727ca6b7213922144e0334a
+=======
+    const { comments } = this.state;
+    
+>>>>>>> parent of 864e6ed... ff
 
     return (
     <div className="wrap">
@@ -62,10 +71,14 @@ export default class Content extends Component {
         <p className="lead">
             by&nbsp;
 <<<<<<< HEAD
+<<<<<<< HEAD
             <a href="#">{users[0].name}</a>
 =======
             <a href="#">Ivan Ivanovich</a>
 >>>>>>> d7e17a5779fe3f8f2727ca6b7213922144e0334a
+=======
+            <a href="#">users</a>
+>>>>>>> parent of 864e6ed... ff
         </p>
         <hr/>
         <p>Posted on January 1, 2018 at 12:00 PM</p>

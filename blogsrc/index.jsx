@@ -1,15 +1,13 @@
 import './index.scss';
 
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import classNames from 'classnames';
 
 import Header from './components/Header';
 import Content from './components/Content';
 import UserList from './containers/UserListContainer';
-import routes from './routes';
 
 
 class ModalExample extends React.Component {
@@ -49,9 +47,11 @@ class ModalExample extends React.Component {
   //componentDidMount() {this.toggle()}
 }
 
-export class App extends Component {
+class App extends Component {
+
   render () {
     return (
+<<<<<<< HEAD
     <div>
       <Fragment>
       <Header/>
@@ -64,9 +64,21 @@ export class App extends Component {
         <ModalExample>
         </ModalExample>
       </div>
+=======
+      <div>
+        <Header>
+        </Header>
+        <Content>
+        </Content>
+        <ModalExample>
+        </ModalExample>
+        <UserList>
+        </UserList>
+      </div>
+
+>>>>>>> parent of 864e6ed... ff
     )
   }
 }
-
 
 ReactDOM.render(<App />, document.getElementById('root'));
