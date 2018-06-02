@@ -1,13 +1,15 @@
 import './index.scss';
 
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import classNames from 'classnames';
 
 import Header from './components/Header';
 import Content from './components/Content';
 import UserList from './containers/UserListContainer';
+import routes from './routes';
 
 class ModalExample extends React.Component {
   constructor(props) {
@@ -46,23 +48,20 @@ class ModalExample extends React.Component {
   //componentDidMount() {this.toggle()}
 }
 
-class App extends Component {
-
+export class App extends Component {
   render () {
     return (
-      <div>
-        <Header>
-        </Header>
-        <Content>
-        </Content>
-        <ModalExample>
-        </ModalExample>
-        <UserList>
-        </UserList>
-      </div>
-
+      <Fragment>
+      <Header/>
+        <BrowserRouter>
+          <Switch>
+            { routes.map((route, idx) => <Route key={idx} {...route} />) }
+          </Switch>
+        </BrowserRouter>
+      </Fragment>
     )
   }
 }
+
 
 ReactDOM.render(<App />, document.getElementById('root'));

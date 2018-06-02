@@ -6,11 +6,14 @@ import classNames from 'classnames';
 import Comments from '../Comments';
 import CommentsForm from '../CommentsForm';
 import UserList from '../Users/UserList';
+import User from '../Users/User';
+
+const path = require('../../containers/userlist.json');
 
 export default class Content extends Component {
   static defaultProps = {
     size: 'big',
-    users: []
+    
   }
 
   constructor(props) {
@@ -18,6 +21,7 @@ export default class Content extends Component {
 
     this.state = {
       comments: [],
+      users: path
     }
   }
 
@@ -33,8 +37,7 @@ export default class Content extends Component {
 
   render () {
     const { size, children } = this.props;
-    const { comments } = this.state;
-    
+    const { comments, users } = this.state;
 
     return (
     <div className="wrap">
@@ -43,7 +46,7 @@ export default class Content extends Component {
         <h1 className = "mt-4"> Blog 1 </h1>
         <p className="lead">
             by&nbsp;
-            <a href="#">users</a>
+            <a href="#">{users[0].name}</a>
         </p>
         <hr/>
         <p>Posted on January 1, 2018 at 12:00 PM</p>

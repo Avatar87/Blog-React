@@ -11,7 +11,7 @@ export default class UserListContainer extends PureComponent {
       users: [],
       loading: false
     }
-  }
+  }  
 
   componentDidMount() {
 
