@@ -8,12 +8,9 @@ import classNames from 'classnames';
 
 import Header from './components/Header';
 import Content from './components/Content';
-<<<<<<< HEAD
 import UserList from './containers/UserListContainer';
 import routes from './routes';
-=======
 
->>>>>>> d7e17a5779fe3f8f2727ca6b7213922144e0334a
 
 class ModalExample extends React.Component {
   constructor(props) {
@@ -55,7 +52,7 @@ class ModalExample extends React.Component {
 export class App extends Component {
   render () {
     return (
-<<<<<<< HEAD
+    <div>
       <Fragment>
       <Header/>
         <BrowserRouter>
@@ -64,19 +61,9 @@ export class App extends Component {
           </Switch>
         </BrowserRouter>
       </Fragment>
-=======
-      <div>
-        <Header>
-    
-        </Header>
-        <Content>
-
-        </Content>
         <ModalExample>
         </ModalExample>
       </div>
-
->>>>>>> d7e17a5779fe3f8f2727ca6b7213922144e0334a
     )
   }
 }
