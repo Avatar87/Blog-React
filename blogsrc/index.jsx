@@ -7,8 +7,15 @@ import classNames from 'classnames';
 
 import Header from './components/Header';
 import Content from './components/Content';
+<<<<<<< HEAD
 import UserList from './containers/UserListContainer';
+<<<<<<< HEAD
+=======
+import routes from './routes';
+=======
+>>>>>>> parent of d024491...   dd
 
+>>>>>>> d7e17a5779fe3f8f2727ca6b7213922144e0334a
 
 class ModalExample extends React.Component {
   constructor(props) {
@@ -52,7 +59,10 @@ class App extends Component {
   render () {
     return (
 <<<<<<< HEAD
+<<<<<<< HEAD
     <div>
+=======
+>>>>>>> parent of d024491...   dd
       <Fragment>
       <Header/>
         <BrowserRouter>
@@ -61,9 +71,18 @@ class App extends Component {
           </Switch>
         </BrowserRouter>
       </Fragment>
+=======
+      <div>
+        <Header>
+    
+        </Header>
+        <Content>
+
+        </Content>
         <ModalExample>
         </ModalExample>
       </div>
+<<<<<<< HEAD
 =======
       <div>
         <Header>
@@ -77,6 +96,10 @@ class App extends Component {
       </div>
 
 >>>>>>> parent of 864e6ed... ff
+=======
+
+>>>>>>> d7e17a5779fe3f8f2727ca6b7213922144e0334a
+>>>>>>> parent of d024491...   dd
     )
   }
 }
