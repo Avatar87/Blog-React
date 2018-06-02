@@ -5,6 +5,7 @@ import classNames from 'classnames';
 
 import Comments from '../Comments';
 import CommentsForm from '../CommentsForm';
+<<<<<<< HEAD
 import UserList from '../Users/UserList';
 import User from '../Users/User';
 
@@ -14,14 +15,24 @@ export default class Content extends Component {
   static defaultProps = {
     size: 'big',
     
+=======
+
+export default class Content extends Component {
+  static defaultProps = {
+    size: 'big'
+>>>>>>> d7e17a5779fe3f8f2727ca6b7213922144e0334a
   }
 
   constructor(props) {
     super(props);
 
     this.state = {
+<<<<<<< HEAD
       comments: [],
       users: path
+=======
+      comments: []
+>>>>>>> d7e17a5779fe3f8f2727ca6b7213922144e0334a
     }
   }
 
@@ -37,16 +48,24 @@ export default class Content extends Component {
 
   render () {
     const { size, children } = this.props;
+<<<<<<< HEAD
     const { comments, users } = this.state;
+=======
+    const { comments } = this.state;
+>>>>>>> d7e17a5779fe3f8f2727ca6b7213922144e0334a
 
     return (
     <div className="wrap">
       <div className="content1 col-lg-8"> 
         <section>
-        <h1 className = "mt-4"> Blog 1 </h1>
+        <h1 className = "mt-4"> Post 1 </h1>
         <p className="lead">
             by&nbsp;
+<<<<<<< HEAD
             <a href="#">{users[0].name}</a>
+=======
+            <a href="#">Ivan Ivanovich</a>
+>>>>>>> d7e17a5779fe3f8f2727ca6b7213922144e0334a
         </p>
         <hr/>
         <p>Posted on January 1, 2018 at 12:00 PM</p>
