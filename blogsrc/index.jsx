@@ -7,15 +7,17 @@ import classNames from 'classnames';
 
 import Header from './components/Header';
 import Content from './components/Content';
-<<<<<<< HEAD
 import UserList from './containers/UserListContainer';
 <<<<<<< HEAD
 =======
 import routes from './routes';
+<<<<<<< HEAD
 =======
 >>>>>>> parent of d024491...   dd
 
 >>>>>>> d7e17a5779fe3f8f2727ca6b7213922144e0334a
+=======
+>>>>>>> parent of 05f80b4... Merge branch 'master' of https://github.com/Avatar87/ReactJS
 
 class ModalExample extends React.Component {
   constructor(props) {
@@ -60,9 +62,12 @@ class App extends Component {
     return (
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <div>
 =======
 >>>>>>> parent of d024491...   dd
+=======
+>>>>>>> parent of 05f80b4... Merge branch 'master' of https://github.com/Avatar87/ReactJS
       <Fragment>
       <Header/>
         <BrowserRouter>
@@ -71,6 +76,7 @@ class App extends Component {
           </Switch>
         </BrowserRouter>
       </Fragment>
+<<<<<<< HEAD
 =======
       <div>
         <Header>
@@ -100,6 +106,8 @@ class App extends Component {
 
 >>>>>>> d7e17a5779fe3f8f2727ca6b7213922144e0334a
 >>>>>>> parent of d024491...   dd
+=======
+>>>>>>> parent of 05f80b4... Merge branch 'master' of https://github.com/Avatar87/ReactJS
     )
   }
 }
