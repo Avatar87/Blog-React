@@ -1,0 +1,23 @@
+[
+	{
+	"id":1,
+	"name":"Ivan Ivanovich",
+	"email":"Ivans@gmail.com"
+	},
+	{
+	"id":2,
+	"name":"Fedor Petrovich",
+	"email":"fp2012@ya.ru"
+	},
+	{
+	"id":3,
+	"name":"Innokentiy Vladimirovich",
+	"email":"ivl@mail.ru"
+	},
+	{
+	"id":4,
+	"name":"Petr Evgenyevich",
+	"email":"frth@rambler.ru"
+	}
+]
+
