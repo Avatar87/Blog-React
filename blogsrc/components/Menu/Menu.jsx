@@ -12,7 +12,7 @@ export default class Menu extends Component {
 
     return (
       <ul>
-        {items.map((item) => <NavItem><NavLink href={item.link}>{item.title}</NavLink></NavItem>)}
+        {items.map((item) => <NavItem>{item.link}</NavItem>)}
       </ul>
     )
   }

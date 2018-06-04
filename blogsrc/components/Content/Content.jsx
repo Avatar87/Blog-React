@@ -2,28 +2,19 @@ import './Content.css';
 
 import React, { Component } from 'react';
 import classNames from 'classnames';
+import { Link } from 'react-router-dom';
+import ReactDOM from 'react-dom';
 
 import Comments from '../Comments';
 import CommentsForm from '../CommentsForm';
 import UserList from '../Users/UserList';
 
-export default class Content extends Component {
-  static defaultProps = {
-    size: 'big',
-<<<<<<< HEAD
-    
-<<<<<<< HEAD
-=======
+const path = require('./userlist.json');
 
 export default class Content extends Component {
   static defaultProps = {
-    size: 'big'
->>>>>>> d7e17a5779fe3f8f2727ca6b7213922144e0334a
-=======
+    size: 'big',
     users: []
->>>>>>> parent of 864e6ed... ff
-=======
->>>>>>> parent of 05f80b4... Merge branch 'master' of https://github.com/Avatar87/ReactJS
   }
 
   constructor(props) {
@@ -31,16 +22,7 @@ export default class Content extends Component {
 
     this.state = {
       comments: [],
-<<<<<<< HEAD
       users: path
-<<<<<<< HEAD
-=======
-      comments: []
->>>>>>> d7e17a5779fe3f8f2727ca6b7213922144e0334a
-=======
->>>>>>> parent of 864e6ed... ff
-=======
->>>>>>> parent of 05f80b4... Merge branch 'master' of https://github.com/Avatar87/ReactJS
     }
   }
 
@@ -56,41 +38,16 @@ export default class Content extends Component {
 
   render () {
     const { size, children } = this.props;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     const { comments, users } = this.state;
-=======
-    const { comments } = this.state;
->>>>>>> d7e17a5779fe3f8f2727ca6b7213922144e0334a
-=======
-    const { comments } = this.state;
-    
->>>>>>> parent of 864e6ed... ff
-=======
-    const { comments, users } = this.state;
->>>>>>> parent of 05f80b4... Merge branch 'master' of https://github.com/Avatar87/ReactJS
 
     return (
     <div className="wrap">
       <div className="content1 col-lg-8"> 
         <section>
-        <h1 className = "mt-4"> Blog 1 </h1>
+        <h1 className = "mt-4"> Blog {users[0].id} </h1>
         <p className="lead">
             by&nbsp;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             <a href="#">{users[0].name}</a>
-=======
-            <a href="#">Ivan Ivanovich</a>
->>>>>>> d7e17a5779fe3f8f2727ca6b7213922144e0334a
-=======
-            <a href="#">users</a>
->>>>>>> parent of 864e6ed... ff
-=======
-            <a href="#">{users[0].name}</a>
->>>>>>> parent of 05f80b4... Merge branch 'master' of https://github.com/Avatar87/ReactJS
         </p>
         <hr/>
         <p>Posted on January 1, 2018 at 12:00 PM</p>

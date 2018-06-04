@@ -1,23 +1,18 @@
 import './index.scss';
 
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import classNames from 'classnames';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Header from './components/Header';
 import Content from './components/Content';
 import UserList from './containers/UserListContainer';
-<<<<<<< HEAD
-=======
-import routes from './routes';
-<<<<<<< HEAD
-=======
->>>>>>> parent of d024491...   dd
+import UserListContainer from './containers/UserListContainer';
 
->>>>>>> d7e17a5779fe3f8f2727ca6b7213922144e0334a
-=======
->>>>>>> parent of 05f80b4... Merge branch 'master' of https://github.com/Avatar87/ReactJS
+import routes from './routes';
+
 
 class ModalExample extends React.Component {
   constructor(props) {
@@ -56,60 +51,53 @@ class ModalExample extends React.Component {
   //componentDidMount() {this.toggle()}
 }
 
-class App extends Component {
 
+export class Globalinfo extends Component {
   render () {
     return (
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <div>
-=======
->>>>>>> parent of d024491...   dd
-=======
->>>>>>> parent of 05f80b4... Merge branch 'master' of https://github.com/Avatar87/ReactJS
+        <div className = "wrap">
+          <div className="content1 col-lg-8">
+            <h1 className = "mt-4">This Blog was designed by Avatarzzz</h1>
+            <h2>All rights reserved</h2>
+          </div>
+        </div>
+    )
+  }
+}
+
+
+export class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      info: ''
+    };
+  }
+
+    toggle() {
+    this.setState({
+      info: <Globalinfo/>
+    });
+  }
+
+
+  render () {
+  const { info } = this.state;
+
+    return (
       <Fragment>
-      <Header/>
+        <Header size="maxi" />
         <BrowserRouter>
           <Switch>
             { routes.map((route, idx) => <Route key={idx} {...route} />) }
           </Switch>
         </BrowserRouter>
       </Fragment>
-<<<<<<< HEAD
-=======
-      <div>
-        <Header>
-    
-        </Header>
-        <Content>
-
-        </Content>
-        <ModalExample>
-        </ModalExample>
-      </div>
-<<<<<<< HEAD
-=======
-      <div>
-        <Header>
-        </Header>
-        <Content>
-        </Content>
-        <ModalExample>
-        </ModalExample>
-        <UserList>
-        </UserList>
-      </div>
-
->>>>>>> parent of 864e6ed... ff
-=======
-
->>>>>>> d7e17a5779fe3f8f2727ca6b7213922144e0334a
->>>>>>> parent of d024491...   dd
-=======
->>>>>>> parent of 05f80b4... Merge branch 'master' of https://github.com/Avatar87/ReactJS
     )
   }
+  componentDidMount() {this.toggle()}
+
 }
 
 ReactDOM.render(<App />, document.getElementById('root'));

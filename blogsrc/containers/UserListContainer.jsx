@@ -23,8 +23,8 @@ export default class UserListContainer extends PureComponent {
         this.setState({
           users: path,
           loading: false
-        //});
-      })
+        });
+      //})
       
       //.catch(() => {
         //this.setState({

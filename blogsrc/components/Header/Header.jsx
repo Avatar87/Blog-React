@@ -5,6 +5,10 @@ import classNames from 'classnames';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
 import { Form, FormGroup, Label, FormText } from 'reactstrap';
+import { Link } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
+import routes from '../../routes';
 
 import Menu from '../Menu';
 
@@ -51,11 +55,11 @@ class ModalExample extends React.Component {
 }
 
 const menuItems = [
-  { link: 'index.html', title: 'Home' },
-  { link: 'blog.html', title: 'Blog' },
-  { link: 'about.html', title: 'About Us' },
-  { link: 'prices.html', title: 'Prices' },
-  { link: 'contacts.html', title: 'Contacts' } 
+  { link: <Link to = "/Index" onClick =  {() => window.location = '/Index'}>Home</Link>, title: 'Home' },
+  { link: <Link to = "/Content" onClick =  {() => window.location = '/Content'}>Blog</Link>, title: 'Blog' },
+  { link: <Link to = "/Users" onClick =  {() => window.location = '/Users'}>Users</Link>, title: 'Users' }
+  //{ link: 'prices.html', title: 'Prices' },
+  //{ link: 'contacts.html', title: 'Contacts' } 
 ]
 
 export default class Header extends Component {
@@ -74,7 +78,9 @@ export default class Header extends Component {
     return (
       <div className={headerClasses}>
         <a href = "index.html"><img src="images/logo.png"></img></a>
-        <Menu items={menuItems} />
+        <BrowserRouter>
+          <Menu items={menuItems} />
+        </BrowserRouter>
         <ModalExample />
       </div>
     )

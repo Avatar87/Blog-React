@@ -25,7 +25,7 @@ export default class UserList extends PureComponent {
       <div className = "wrap">
         <div className = "content1">
           <h1 className = "mt-4"> Blog users list </h1>
-          {users.map((user, idx) => <User key={idx} user={user} />)}
+          {users.map((user, idx) => <User key={idx} user={user}/>)}
         </div>
       </div>
     );
