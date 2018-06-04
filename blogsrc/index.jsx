@@ -1,12 +1,17 @@
 import './index.scss';
 
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import classNames from 'classnames';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Header from './components/Header';
 import Content from './components/Content';
+import UserList from './containers/UserListContainer';
+import UserListContainer from './containers/UserListContainer';
+
+import routes from './routes';
 
 
 class ModalExample extends React.Component {
@@ -46,23 +51,53 @@ class ModalExample extends React.Component {
   //componentDidMount() {this.toggle()}
 }
 
-class App extends Component {
 
+export class Globalinfo extends Component {
   render () {
     return (
-      <div>
-        <Header>
-    
-        </Header>
-        <Content>
-
-        </Content>
-        <ModalExample>
-        </ModalExample>
-      </div>
-
+        <div className = "wrap">
+          <div className="content1 col-lg-8">
+            <h1 className = "mt-4">This Blog was designed by Avatarzzz</h1>
+            <h2>All rights reserved</h2>
+          </div>
+        </div>
     )
   }
+}
+
+
+export class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      info: ''
+    };
+  }
+
+    toggle() {
+    this.setState({
+      info: <Globalinfo/>
+    });
+  }
+
+
+  render () {
+  const { info } = this.state;
+
+    return (
+      <Fragment>
+        <Header size="maxi" />
+        <BrowserRouter>
+          <Switch>
+            { routes.map((route, idx) => <Route key={idx} {...route} />) }
+          </Switch>
+        </BrowserRouter>
+      </Fragment>
+    )
+  }
+  componentDidMount() {this.toggle()}
+
 }
 
 ReactDOM.render(<App />, document.getElementById('root'));
