@@ -12,7 +12,13 @@ module.exports = {
     filename: 'bundle.[chunkhash].js'
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
+    alias: {
+      components: path.resolve(__dirname, 'blogsrc', 'components'),
+      containers: path.resolve(__dirname, 'blogsrc', 'containers'),
+      actions: path.resolve(__dirname, 'blogsrc', 'actions'),
+      reducers: path.resolve(__dirname, 'blogsrc', 'reducers'),
+    }
   },
   
   module: {
@@ -35,7 +41,7 @@ module.exports = {
   },
   devServer: {
     contentBase: path.resolve(__dirname, 'Blog'),
-    historyApiFallback: true
+    historyApiFallback: true,
   },
   plugins: [
     new ExtractTextPlugin('css/style.[chunkhash].css'),

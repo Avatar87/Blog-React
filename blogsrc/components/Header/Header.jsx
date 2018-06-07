@@ -56,7 +56,7 @@ class ModalExample extends React.Component {
 
 const menuItems = [
   { link: <Link to = "/Index" onClick =  {() => window.location = '/Index'}>Home</Link>, title: 'Home' },
-  { link: <Link to = "/Content" onClick =  {() => window.location = '/Content'}>Blog</Link>, title: 'Blog' },
+  { link: <Link to = "/Content" onClick =  {() => window.location = '/blogs'}>Blogs</Link>, title: 'Blog' },
   { link: <Link to = "/Users" onClick =  {() => window.location = '/Users'}>Users</Link>, title: 'Users' }
   //{ link: 'prices.html', title: 'Prices' },
   //{ link: 'contacts.html', title: 'Contacts' } 
@@ -77,7 +77,7 @@ export default class Header extends Component {
 
     return (
       <div className={headerClasses}>
-        <a href = "index.html"><img src="images/logo.png"></img></a>
+        <a href = "/Index"><img src="images/logo.png"></img></a>
         <BrowserRouter>
           <Menu items={menuItems} />
         </BrowserRouter>

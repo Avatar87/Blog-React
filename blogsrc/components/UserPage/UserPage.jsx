@@ -1,28 +1,65 @@
 import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-export default class UserPage extends PureComponent {
+import { loadBlogs } from 'actions/blogs';
+
+import UserContainer from 'containers/UserContainer';
+import BlogList from '../Content/BlogList';
+
+class UserPage extends PureComponent {
   static propTypes = {
     name: PropTypes.string,
-    username: PropTypes.string,
     email: PropTypes.string,
-    phone: PropTypes.string,
-    website:  PropTypes.string
+    blogs: PropTypes.array
+  }
+
+  componentDidMount() {
+    const { load } = this.props;
+
+    load();
   }
 
   renderProps = () => {
-    const { name, username, email, phone, website } = this.props
-    return [name, username, email, phone, website]
+    const { name, email} = this.props
+    return [name, email]
       .map((val, key) => <li key={key}>{val}</li>);
   };
 
   render() {
+
+    const { blogs, loading, name } = this.props;
+    let resultblog = blogs.filter(blogs => blogs.author == name);
+    let empty = '';
+    if (resultblog.length == 0) {empty = 'This user has no active blogs'};
+    
     return (
       <Fragment>
         <ul className="UserPage">
           {this.renderProps()}
-        </ul>
+        </ul>      
+        <BlogList blogs={resultblog}/>
+        {empty}
       </Fragment>
     );
   }
 }
+
+
+
+function mapStateToProps(state, ownProps) {
+  return {
+    ...ownProps,
+    blogs: state.blogs.blogs,
+    loading: state.blogs.loading
+  }
+}
+
+function mapDispatchToProps(dispatch, props) {
+  return {
+    ...props,
+    load: () => loadBlogs(dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserPage);

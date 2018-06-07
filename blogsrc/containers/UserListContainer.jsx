@@ -1,44 +1,41 @@
 import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
+
+import { loadUsers } from 'actions/users';
 
 import UserList from '../components/Users/UserList';
 import Loading from '../components/Loading';
 
-export default class UserListContainer extends PureComponent {
-  constructor(props) {
-    super(props);
+class UserListContainer extends PureComponent {
 
-    this.state = {
-      users: [],
-      loading: false
-    }
-  }
+componentDidMount() {
+    const { load } = this.props;
 
-  componentDidMount() {
-
-  const path = require('./userlist.json');
-    this.setState({ loading: true });
-    //fetch('./comments.json')
-      //.then((response) => response.json())
-      //.then((users) => {
-        this.setState({
-          users: path,
-          loading: false
-        });
-      //})
-      
-      //.catch(() => {
-        //this.setState({
-         // users: [],
-          //loading: false
-       // });
-      //});
+    load();
   }
 
   render() {
-    const { users, loading } = this.state;
+    const { users, loading } = this.props;
 
     return (
       <div>{ loading ? <Loading /> : <UserList users={users} /> }</div>
     );
   }
 }
+
+function mapStateToProps(state, ownProps) {
+  return {
+    ...ownProps,
+    users: state.users.users,
+    loading: state.users.loading
+  }
+}
+
+function mapDispatchToProps(dispatch, props) {
+  return {
+    ...props,
+    load: () => loadUsers(dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserListContainer);
