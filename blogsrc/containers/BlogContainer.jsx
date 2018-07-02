@@ -1,14 +1,14 @@
 import React, { PureComponent, Fragment } from 'react';
 
-import UserPage from '../components/UserPage';
+import BlogPage from '../components/BlogPage';
 import Loading from '../components/Loading';
 
-export default class UserContainer extends PureComponent {
+export default class BlogContainer extends PureComponent {
   constructor(props) {
     super(props);
 
     this.state = {
-      user: {},
+      blog: {},
       loading: false
     }
   }
@@ -18,31 +18,30 @@ export default class UserContainer extends PureComponent {
 
     this.setState({ loading: true });
     
-    fetch(`http://localhost:3000/users/${match.params.userId}`)
+    fetch(`http://localhost:3000/blogs/${match.params.blogId}`)
       .then((response) => response.json())
-      .then((user) => {
+      .then((blog) => {
         this.setState({
-          user,
+          blog,
           loading: false
         });
       })
       .catch(() => {
         this.setState({
-          user: {},
+          blog: {},
           loading: false
         });
      });
-     
   }
 
   render() {
-    const { user, loading } = this.state;
+    const { blog, loading } = this.state;
 
     return (
       <Fragment>
         <div className = "wrap">
           <div className = "content1">
-        { loading ? <Loading /> : <UserPage {...user} /> }
+        { loading ? <Loading /> : <BlogPage {...blog} /> }
           </div>
         </div>
       </Fragment>

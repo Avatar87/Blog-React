@@ -1,7 +1,9 @@
 import UserListContainer from './containers/UserListContainer';
 import User from './containers/UserContainer';
 import Content from './components/Content/Content';
-import App from './index';
+import Globalinfo from './components/Main';
+import Blog from './containers/BlogContainer';
+import BlogListContainer from './containers/BlogListContainer';
 
 export default [
   {
@@ -10,8 +12,13 @@ export default [
     exact: true
   },
   {
-    path: '/Users/:userId',
+    path: '/users/:userId',
     component: User,
+    exact: true
+  },
+  {
+    path: '/blogs/:blogId',
+    component: Blog,
     exact: true
   },
   {
@@ -21,9 +28,13 @@ export default [
   },
   {
     path: '/Index',
-    component: App,
+    component: Globalinfo,
+    exact: true
+  },
+  {
+    path: '/blogs',
+    component: BlogListContainer,
     exact: true
   }
-
 
 ]

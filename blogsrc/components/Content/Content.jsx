@@ -9,12 +9,11 @@ import Comments from '../Comments';
 import CommentsForm from '../CommentsForm';
 import UserList from '../Users/UserList';
 
-const path = require('./userlist.json');
 
 export default class Content extends Component {
   static defaultProps = {
     size: 'big',
-    users: []
+    users: [],
   }
 
   constructor(props) {
@@ -22,7 +21,8 @@ export default class Content extends Component {
 
     this.state = {
       comments: [],
-      users: path
+      users: [],
+      blogs: {}
     }
   }
 
@@ -34,20 +34,54 @@ export default class Content extends Component {
     });
     }
   }
-  
+
+  componentDidMount() {
+    this.setState({ loading: true });
+    
+    fetch(`http://localhost:3000/blogs/`)
+      .then((response) => response.json())
+      .then((blogs) => {
+        this.setState({
+          blogs,
+          loading: false
+        });
+        console.log(match.params)
+
+      })
+      .catch(() => {
+        this.setState({
+          blogs: {},
+          loading: false
+        });
+     });
+    fetch(`http://localhost:3000/users/`)
+      .then((response) => response.json())
+      .then((users) => {
+        this.setState({
+          users,
+          loading: false
+        });
+      })
+      .catch(() => {
+        this.setState({
+          users: {},
+          loading: false
+        });
+     });
+  }
 
   render () {
     const { size, children } = this.props;
-    const { comments, users } = this.state;
+    const { comments, users, blogs, loading } = this.state;
 
     return (
     <div className="wrap">
       <div className="content1 col-lg-8"> 
         <section>
-        <h1 className = "mt-4"> Blog {users[0].id} </h1>
+        <Link to={`blogs/${blogs.id}`}><h1 className = "mt-4"> Blog {blogs.id} </h1></Link>
         <p className="lead">
             by&nbsp;
-            <a href="#">{users[0].name}</a>
+            <a href="#">{users.name}</a>
         </p>
         <hr/>
         <p>Posted on January 1, 2018 at 12:00 PM</p>
@@ -69,3 +103,4 @@ export default class Content extends Component {
     )
   }
 }
+
